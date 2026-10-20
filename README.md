@@ -19,6 +19,12 @@ Game development has well-known optimization patterns for this, but their benefi
 
 The results are meant to help developers of browser games decide whether the extra implementation effort is worth it for the number of objects they expect.
 
+### Expected result
+
+- a reproducible test scenario in Phaser.js with three variants (baseline, Object Pool, Spatial Partition)
+- automated measurements and the resulting data
+- a written comparison stating for each pattern, from which object count it performs measurably better than the baseline or that it shows no benefit in the tested range
+
 ### Test scenario
 
 Not a full game, but a playing field where projectiles are constantly spawned and removed, move around and collide with enemies. The scenario runs without player input and with fixed starting values, so every run behaves the same way.
@@ -52,6 +58,15 @@ Out of scope for this project: implementing further patterns or combinations of 
 | 14.12.2026 | Object Pool, Spatial Partition, measurement setup, report 2 |
 | 10.01.2027 | Full measurement runs, analysis, report 3 |
 | 26.01.2027 | Final documentation and presentation |
+
+### Project structure (planned)
+
+```text
+src/      test scenario and its three variants
+bench/    automated measurement scripts
+results/  processed measurement data and charts
+docs/     research notes and reports
+```
 
 ### Getting started
 
