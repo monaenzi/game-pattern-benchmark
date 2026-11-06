@@ -1,0 +1,32 @@
+{
+  "name": "game-pattern-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Performance comparison of Object Pool and Spatial Partition in Phaser.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monaenzi/game-pattern-benchmark.git"
+  },
+  "author": "Ramona Enzi",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/monaenzi/game-pattern-benchmark/issues"
+  },
+  "homepage": "https://github.com/monaenzi/game-pattern-benchmark#readme",
+  "dependencies": {
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vite": "8.3.6"
+  }
+}
