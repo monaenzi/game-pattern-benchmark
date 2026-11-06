@@ -1,11 +1,15 @@
 # Game Pattern Benchmark
 
+[![CI](https://github.com/monaenzi/game-pattern-benchmark/actions/workflows/ci.yml/badge.svg)](https://github.com/monaenzi/game-pattern-benchmark/actions/workflows/ci.yml)
+
 ## Are optimization patterns worth it in Phaser.js? A performance comparison of Object Pool and Spatial Partition
 
 Student project in Mobile Software Development (MSD24 WS26/27)\
 **Author:** Ramona Enzi\
 **Supervisor:** DI(FH) Michael Ulm, MA\
 **Original Title:** Lohnen sich Optimierungsmuster in Phaser.js? Ein Performancevergleich von Object Pool und Spatial Partition
+
+> **Status:** project setup done, baseline test scenario in progress.
 
 ### Goal
 
@@ -59,15 +63,47 @@ Out of scope for this project: implementing further patterns or combinations of 
 | 10.01.2027 | Full measurement runs, analysis, report 3 |
 | 26.01.2027 | Final documentation and presentation |
 
-### Project structure (planned)
+### Tech stack
+
+All versions are pinned exactly so that measurements stay comparable.
+
+| Tool | Version | Purpose |
+| --- | --- | --- |
+| [Phaser](https://phaser.io) | 4.2.1 | game framework |
+| [TypeScript](https://www.typescriptlang.org) | 7.0.2 | language and type checking |
+| [Vite](https://vite.dev) | 8.3.6 | dev server and bundler |
+| [Node.js](https://nodejs.org) | 24 | runtime for tooling (see `.nvmrc`) |
+
+### Project structure
 
 ```text
-src/      test scenario and its three variants
-bench/    automated measurement scripts
-results/  processed measurement data and charts
-docs/     research notes and reports
+src/
+  main.ts       entry point, starts Phaser
+  scenes/       benchmark scene
+  scenario/     rules shared by all variants (planned)
+  variants/     baseline, Object Pool, Spatial Partition (planned)
+bench/          automated measurement scripts (planned)
+results/        processed measurement data and charts (planned)
+docs/           research notes and reports (planned)
 ```
 
 ### Getting started
 
-Will be added once the baseline test scenario is in place.
+Requires Node.js 24 or newer.
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints.
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | starts the dev server with hot reload |
+| `npm run build` | type-checks and builds the production version into `dist/` |
+| `npm run preview` | serves the production build locally |
+
+### License
+
+No license has been chosen yet, so all rights are reserved for now.
