@@ -23,6 +23,7 @@ export class BenchmarkScene extends Phaser.Scene {
     private variant!: Variant;
     private hud?: Phaser.GameObjects.Text;
     private frame = 0;
+    private totalHits = 0;
 
 
     constructor() {
@@ -52,6 +53,7 @@ export class BenchmarkScene extends Phaser.Scene {
     update(): void {
         const stats = this.variant.step(FIXED_DT);
         this.frame++;
+        this.totalHits += stats.hits;
 
         window.benchmark!.frame = this.frame;
         window.benchmark!.last = stats;
@@ -64,6 +66,8 @@ export class BenchmarkScene extends Phaser.Scene {
                 `enemies ${stats.enemies}`,
                 `shots ${stats.projectiles}`,
                 `checks ${stats.collisionChecks}`,
+                `hits ${this.totalHits}`,
+                `sprites ${this.children.length}`, //should always be one more than than enemies+projectiles because of hud
             ]);
         }
     }
