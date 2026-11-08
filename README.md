@@ -9,7 +9,7 @@ Student project in Mobile Software Development (MSD24 WS26/27)\
 **Supervisor:** DI(FH) Michael Ulm, MA\
 **Original Title:** Lohnen sich Optimierungsmuster in Phaser.js? Ein Performancevergleich von Object Pool und Spatial Partition
 
-> **Status:** project setup done, baseline test scenario in progress.
+> **Status:** baseline test scenario done, Object Pool and Spatial Partition in progress.
 
 ### Goal
 
@@ -79,9 +79,10 @@ All versions are pinned exactly so that measurements stay comparable.
 ```text
 src/
   main.ts       entry point, starts Phaser
-  scenes/       benchmark scene
-  scenario/     rules shared by all variants (planned)
-  variants/     baseline, Object Pool, Spatial Partition (planned)
+  config.ts     scenario parameters from the URL
+  scenes/       benchmark scene and generated textures
+  scenario/     rules shared by all variants, seeded random number generator
+  variants/     baseline (Object Pool, Spatial Partition follow)
 bench/          automated measurement scripts (planned)
 results/        processed measurement data and charts (planned)
 docs/           research notes and reports (planned)
@@ -97,6 +98,19 @@ npm run dev
 ```
 
 Then open the URL Vite prints.
+
+The scenario is configured through URL parameters:
+
+| Parameter | Default | Meaning |
+| --- | --- | --- |
+| `variant` | `baseline` | implementation to run |
+| `count` | `1000` | number of live objects (half enemies, half projectiles) |
+| `seed` | `42` | seed for the random number generator |
+| `hud` | `1` | `0` hides the stats overlay |
+
+Example: `http://localhost:5173/?variant=baseline&count=5000&seed=42`
+
+An unknown `variant` stops the scenario with an error in the browser console.
 
 | Command | Description |
 | --- | --- |
